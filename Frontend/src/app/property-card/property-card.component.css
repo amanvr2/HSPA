@@ -1,0 +1,16 @@
+.card-list{
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  width: 80%;
+}
+
+.card-item{
+  width: 24%;
+  box-shadow: 0 0 4px 1px lightgray;
+  padding: 10px;
+}
+
+.card-item>img{
+  width: 100%;
+}
