@@ -1,3 +1,7 @@
+p{
+  margin-top: 60px;
+}
+
 .card{
   width: 100%;
   display: flex;
@@ -10,7 +14,6 @@
 .card-list{
   display: flex;
   flex-flow: row;
-  flex-wrap: wrap;
   justify-content: space-evenly;
   width: 80%;
 }

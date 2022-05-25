@@ -1,16 +1,27 @@
-.card-list{
-  display: flex;
-  flex-flow: row;
-  justify-content: center;
-  width: 80%;
-}
 
 .card-item{
-  width: 24%;
+  width: 100%;
   box-shadow: 0 0 4px 1px lightgray;
   padding: 10px;
+  margin-top: 100px;
 }
 
 .card-item>img{
   width: 100%;
 }
+
+.card-item:hover{
+
+  transform: scale(1.1,1.1);
+  transition-duration: 500ms;
+  transition-timing-function: ease-out;
+}
+
+/* .member-icons{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+} */
