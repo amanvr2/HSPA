@@ -32,7 +32,7 @@ export class PropertyDetailComponent implements OnInit {
 
 
 
-    // this.getAllPropertiesService.getSelected(this.id).subscribe(data => this.property = data);
+    this.getAllPropertiesService.getSelected(this.id).subscribe(data => this.property = data);
 
     this.route.params.subscribe(
       (params)=>{
