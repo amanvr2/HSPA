@@ -1,4 +1,4 @@
-<p>property-detail works! {{id}}</p>
+<p>property-detail works! {{propertyId}}</p>
 
 <!-- <button (click)="onSelectNext()" class="btn btn-primary">select next</button>
 
@@ -9,14 +9,129 @@
 
 <button routerLink="/property-detail/3" class="btn btn-primary">3</button> -->
 
-<div class="card">
+<!-- <div class="card">
   <div class="card-list">
     <div class = "test" *ngFor="let prop of property">
       <app-property-card [props] = "prop"></app-property-card>
     </div>
   </div>
+</div> -->
+
+<div class="row shadow">
+  <div class="col-sm-4 p-0">
+    <div class="card">
+      <div class="card-img-wrapper">
+        <img *ngIf="property.image" class="card-img-top" src="assets/images/{{property.image}}.jpg">
+        <img *ngIf="!property.image" class="card-img-top" src="assets/images/house.jpg">
+      </div>
+      <div class="card-body">
+        <h1 class="card-title">{{property.name}}</h1>
+        <div>
+            <strong>{{property.bhk}} BHK {{property.Ptype}} @ ${{property.price}}</strong>
+        </div>
+        <div>
+           <strong>in {{property.city}}</strong>
+        </div> <hr>
+        <div>
+            <strong>Build Area: </strong>
+            {{property.builtarea}} Sqft
+        </div>
+
+        <div>
+            <strong>Carpet Area: </strong>
+            {{property.carpetarea}} Sqft
+        </div>
+        <div>
+            <strong>Furnishing Type: </strong>
+            {{property.Ftype}}
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="btn-group d-flex">
+          <button class="btn btn-primary">Like</button>
+          <button class="btn btn-success">Message</button>
+        </div>
+      </div>
+  </div>
+  </div>
+  <div class="col-sm-8 p-0">
+    <div class="tab-panel p-3">
+      <tabset class="member-tabset">
+        <tab heading="Overview">
+          <h1>Overview</h1>
+          <div class="row">
+              <div class="col-sm-6">
+                  <div class="heading">
+                      <strong>Project Name</strong>
+                      <p>{{property.name}}</p>
+                  </div>
+
+                  <div class="heading">
+                      <strong>Floor Number</strong>
+                      <p>{{property.floorno}}</p>
+                  </div>
+
+                  <div class="heading">
+                      <strong>Age of Property</strong>
+                      <p>{{property.aop}}</p>
+                  </div>
+
+                  <div class="heading">
+                      <strong>Posession</strong>
+                      <p>{{property.possession}}</p>
+                  </div>
+              </div>
+
+              <div class="col-sm-6">
+                  <div class="heading">
+                      <strong>Main Entrance</strong>
+                      <p>{{property.mainentrance}}</p>
+                  </div>
+
+                  <div class="heading">
+                      <strong>Gated Community</strong>
+                      <p>{{property.gated}}</p>
+                  </div>
+
+                  <div class="heading">
+                      <strong>Security Deposit</strong>
+                      <p>{{property.security}}</p>
+                  </div>
+                  <div class="heading">
+                      <strong>Maintenance</strong>
+                      <p>{{property.maintenance}}</p>
+                  </div>
+              </div>
+              <div class="col-sm-12">
+                  <div class="heading">
+                      <strong>About Property</strong>
+                      <p>{{property.Description}}</p>
+                  </div>
+              </div>
+            </div>
+        </tab>
+        <tab heading="Address">
+          <div class="col-sm-12">
+            <h1>Address</h1>
+            <div class="heading">
+                <strong>{{property.address}}</strong><br/>
+                <strong>{{property.address2}}</strong><br/>
+                <strong>{{property.city}}</strong>
+            </div>
+        </div>
+
+        </tab>
+        <tab heading="Photos">
+
+          <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+        </tab>
+        <tab heading="Contact">
+          <h1>Contact Detail</h1>
+          This should be restricted area and only registered user should be able to see seller contact details
+        </tab>
+      </tabset>
+    </div>
+  </div>
 </div>
-
-
 
 

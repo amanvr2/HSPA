@@ -4,7 +4,10 @@ import { Property } from '../model/property';
 import { ActivatedRoute} from '@angular/router';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { PropertyBase } from '../model/propertyBase';
+import {NgxGalleryOptions} from '@kolkov/ngx-gallery';
+import {NgxGalleryImage} from '@kolkov/ngx-gallery';
+import {NgxGalleryAnimation} from '@kolkov/ngx-gallery';
+
 
 @Component({
   selector: 'app-property-detail',
@@ -13,9 +16,14 @@ import { PropertyBase } from '../model/propertyBase';
 })
 export class PropertyDetailComponent implements OnInit {
 
-  property:PropertyBase[]=[];
 
-  id!: number;
+
+  property = new Property();
+
+  public propertyId!: number;
+
+  galleryOptions!: NgxGalleryOptions[];
+  galleryImages!: NgxGalleryImage[];
 
 
   constructor(
@@ -27,30 +35,98 @@ export class PropertyDetailComponent implements OnInit {
 
 
 
-  getProperty(){
-    this.id = Number(this.route.snapshot.paramMap.get('id'));
+  getProperty():void{
 
+    this.propertyId = Number(this.route.snapshot.paramMap.get('id'));
 
+    //this.getAllPropertiesService.getSelected(this.id).subscribe(data => this.property = data);
 
-    this.getAllPropertiesService.getSelected(this.id).subscribe(data => this.property = data);
-
-    this.route.params.subscribe(
-      (params)=>{
-
-        this.id = Number(params['id']);
+    this.route.data.subscribe(
+      (data: any) => {
+        this.property = data['prp'];
       }
-    )
+    );
+
+    // this.route.params.subscribe(
+    //   (params) => {
+    //     this.propertyId = +params['id'];
+    //     this.getAllPropertiesService.getProperty(this.propertyId).subscribe(
+    //       (data: any) => {
+    //         this.property = data;
+    //       }, error=>this.router.navigate(['/'])
+    //     );
+    //   }
+    // );
+    this.galleryOptions = [
+      {
+        width: '100%',
+        height: '400px',
+        thumbnailsColumns: 4,
+        imageAnimation: NgxGalleryAnimation.Slide,
+        preview: true
+      }
+    ];
+
+    this.galleryImages = [
+      {
+        small: 'assets/images/int1.jpg',
+        medium: 'assets/images/int1.jpg',
+        big: 'assets/images/int1.jpg'
+      },
+      {
+        small: 'assets/images/int2.jpg',
+        medium: 'assets/images/int2.jpg',
+        big: 'assets/images/int2.jpg'
+      },
+      {
+        small: 'assets/images/int3.jpg',
+        medium: 'assets/images/int3.jpg',
+        big: 'assets/images/int3.jpg'
+      },
+      {
+        small: 'assets/images/int4.jpg',
+        medium: 'assets/images/int4.jpg',
+        big: 'assets/images/int4.jpg'
+      },
+      {
+        small: 'assets/images/int5.jpg',
+        medium: 'assets/images/int5.jpg',
+        big: 'assets/images/int5.jpg'
+      }
+    ];
 
 
   }
 
-  onSelectNext(){
-
-    this.id+=1;
-    this.router.navigate(['property-detail/'+this.id]);
 
 
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // onSelectNext(){
+
+  //   this.propertyId+=1;
+  //   this.router.navigate(['property-detail/'+this.propertyId]);
+
+
+  // }
 
 
 

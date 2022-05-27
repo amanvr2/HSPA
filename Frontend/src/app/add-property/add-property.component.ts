@@ -227,19 +227,19 @@ export class AddPropertyComponent implements OnInit {
     this.property.city = this.City.value;
     this.property.Ftype = this.FType.value;
     this.property.price = this.Price.value;
-    this.property.Security = this.Security.value;
-    this.property.Maintenance = this.Maintenance.value;
+    this.property.security = this.Security.value;
+    this.property.maintenance = this.Maintenance.value;
     this.property.builtarea = this.BuiltArea.value;
-    this.property.CarpetArea = this.CarpetArea.value;
+    this.property.carpetarea = this.CarpetArea.value;
     this.property.floorno = this.FloorNo.value;
-    this.property.TotalFloor = this.TotalFloor.value;
+    this.property.totalfloor = this.TotalFloor.value;
     this.property.address = this.Address.value;
     this.property.address2 = this.LandMark.value;
     this.property.rtm = this.RTM.value;
-    this.property.AOP = this.AOP.value;
-    this.property.Gated = this.Gated.value;
-    this.property.MainEntrance = this.MainEntrance.value;
-    this.property.Possession = this.PossessionOn.value;
+    this.property.aop = this.AOP.value;
+    this.property.gated = this.Gated.value;
+    this.property.mainentrance = this.MainEntrance.value;
+    this.property.possession = this.PossessionOn.value;
     this.property.Description = this.Description.value;
     this.property.postedon = new Date().toString();
   }
